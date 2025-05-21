@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8">
+  <title>Անահիտ & Արմեն — Հարսանեկան հրավիրատոմս</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #fdf6f0;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #533f34;
+    }
+    .container {
+      max-width: 700px;
+      margin: 40px auto 0 auto;
+      background: #fff;
+      border-radius: 22px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      padding: 0 0 30px 0;
+      overflow: hidden;
+      position: relative;
+    }
+    header {
+      background: linear-gradient(90deg, #fceabb 0%, #f8bfae 100%);
+      padding: 40px 10px 20px 10px;
+      text-align: center;
+      border-bottom: 3px solid #ecd9d2;
+    }
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      color: #a75e48;
+      margin-bottom: 0;
+    }
+    header h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2em;
+      color: #7b3f2c;
+      margin: 8px 0 0 0;
+    }
+    .nav {
+      display: flex;
+      justify-content: center;
+      background: #fff7f0;
+      border-bottom: 2px solid #f2c9c2;
+    }
+    .nav button {
+      background: none;
+      border: none;
+      font-size: 1.1em;
+      color: #a75e48;
+      padding: 16px 22px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.2s, color 0.2s;
+      outline: none;
+    }
+    .nav button.active,
+    .nav button:hover {
+      background: #fad2c3;
+      color: #7b3f2c;
+      border-bottom: 2px solid #a75e48;
+    }
+    section {
+      padding: 24px 32px 10px 32px;
+      display: none;
+      min-height: 500px;
+      animation: fadein 0.5s;
+    }
+    section.active {
+      display: block;
+    }
+    @keyframes fadein {
+      from { opacity: 0;}
+      to { opacity: 1;}
+    }
+    .img-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      margin: 22px 0;
+    }
+    .img-gallery img {
+      width: 160px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 2px solid #f2c9c2;
+      box-shadow: 0 3px 12px rgba(180,120,120,0.07);
+    }
+    .symbol-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 36px;
+      margin: 25px 0 10px 0;
+    }
+    .symbol-row img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      opacity: 0.86;
+    }
+    .info-block {
+      background: #faf2e5;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 18px 0;
+      font-size: 1.09em;
+      box-shadow: 0 2px 8px rgba(170,120,120,0.06);
+    }
+    .important {
+      color: #a75e48;
+      font-weight: bold;
+      font-size: 1.15em;
+    }
+    .route {
+      margin: 15px 0 8px 0;
+      font-size: 1em;
+      background: #f4ddd7;
+      padding: 8px 13px;
+      border-radius: 10px;
+      line-height: 1.7;
+    }
+    .countdown {
+      background: #f2c9c2;
+      color: #fff;
+      border-radius: 12px;
+      display: inline-block;
+      font-size: 1.2em;
+      padding: 10px 24px;
+      margin: 16px 0 10px 0;
+      font-family: 'Roboto', sans-serif;
+      letter-spacing: 1px;
+    }
+    .timeline {
+      margin: 25px 0 20px 0;
+      padding: 0;
+      list-style: none;
+    }
+    .timeline li {
+      margin: 0 0 16px 0;
+      padding: 12px 0 12px 20px;
+      border-left: 3px solid #e1bfae;
+      position: relative;
+    }
+    .timeline li:before {
+      content: "";
+      position: absolute;
+      left: -8px;
+      top: 18px;
+      width: 15px;
+      height: 15px;
+      background: #fad2c3;
+      border-radius: 50%;
+      border: 2px solid #e1bfae;
+    }
+    .warm-words {
+      font-size: 1.24em;
+      font-style: italic;
+      background: #fff5e7;
+      border-radius: 14px;
+      padding: 24px 18px;
+      box-shadow: 0 2px 8px rgba(180,120,120,0.08);
+      margin: 30px 0 16px 0;
+      text-align: center;
+      color: #7b3f2c;
+    }
+    .rsvp-section {
+      margin-top: 35px;
+      background: #f7ece3;
+      border-radius: 12px;
+      padding: 24px 0 16px 0;
+      text-align: center;
+    }
+    .rsvp-section h3 { color: #a75e48; }
+    iframe {
+      width: 98%;
+      min-height: 520px;
+      border: none;
+      border-radius: 12px;
+      margin-top: 10px;
+      background: #fff;
+    }
+    @media (max-width: 800px) {
+      .container {max-width: 99vw;}
+      section {padding: 17px 2vw;}
+      .img-gallery img {width: 95px; height: 70px;}
+      .symbol-row img {width: 40px; height: 40px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Անահիտ & Արմեն</h1>
+      <h2>Հարսանեկան հրավիրատոմս</h2>
+      <div class="countdown" id="countdown"></div>
+    </header>
+    <nav class="nav">
+      <button class="active" onclick="showPage('home')">Գլխավոր</button>
+      <button onclick="showPage('church')">Եկեղեցի</button>
+      <button onclick="showPage('restaurant')">Ռեստորան</button>
+      <button onclick="showPage('timeline')">Ժամանակացույց</button>
+      <button onclick="showPage('warmwords')">Ջերմ խոսքեր</button>
+      <button onclick="showPage('rsvp')">RSVP</button>
+    </nav>
+    <section id="home" class="active">
+      <div class="img-gallery">
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Wedding Couple">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Church Wedding">
+        <img src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=400&q=80" alt="Rings">
+        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Flowers">
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80" alt="Bouquet">
+      </div>
+      <div class="info-block">
+        Սիրելի բարեկամ,  
+        Ուրախությամբ ու սիրով հրավիրում ենք քեզ մեր կյանքի ամենաերջանիկ օրվան:  
+        Քո ներկայությունը կլինի մեր երջանկության ամենամեծ նվերը։
+        <br><br>
+        <span class="important">Հարսանիքը տեղի կունենա՝ <br>
+        2025թ․ հունիսի 20-ին</span>
+      </div>
+    </section>
+    <section id="church">
+      <div class="symbol-row">
+        <img src="https://cdn-icons-png.flaticon.com/512/3448/3448645.png" alt="Church Icon" title="Եկեղեցի">
+        <img src="https://cdn-icons-png.flaticon.com/512/3349/3349110.png" alt="Rings" title="Մատանիներ">
+      </div>
+      <div class="img-gallery">
+        <img src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?auto=format&fit=crop&w=400&q=80" alt="Church Outside">
+        <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=400&q=80" alt="Church Inside">
+      </div>
+      <div class="info-block">
+        <strong>Եկեղեցի՝</strong> Սուրբ Գրիգոր Լուսավորիչ<br>
+        <strong>Հասցե՝</strong> Ք. Երևան, Վարդանանց փողոց 1<br>
+        <strong>Ժամանակ՝</strong> 2025թ․ հունիսի 20, ժամը 15:00
+      </div>
+      <div class="route">
+        <b>Ինչպես հասնել.</b><br>
+        Եկեղեցին գտնվում է քաղաքի կենտրոնում՝ Հանրապետության հրապարակի մոտ, մատչելի է բոլոր տրանսպորտային միջոցներով։  
+        <br>
+        <a href="https://goo.gl/maps/fwK8K6b6n2K2" target="_blank">Դիտել քարտեզում</a>
+      </div>
+    </section>
+    <section id="restaurant">
+      <div class="symbol-row">
+        <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Restaurant Icon" title="Ռեստորան">
+        <img src="https://cdn-icons-png.flaticon.com/512/3202/3202926.png" alt="Dancing" title="Պար">
+      </div>
+      <div class="img-gallery">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80" alt="Restaurant Hall">
+        <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=400&q=80" alt="Banquet Table">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Dance Floor">
+      </div>
+      <div class="info-block">
+        <strong>Տոնական ընթրիք՝</strong> «Արև» ռեստորան<br>
+        <strong>Հասցե՝</strong> Ք. Երևան, Սայաթ-Նովա պողոտա 80<br>
+        <strong>Ժամանակ՝</strong> 2025թ․ հունիսի 20, ժամը 17:00
+      </div>
+      <div class="route">
+        <b>Ինչպես հասնել.</b><br>
+        Ռեստորանը գտնվում է Սայաթ-Նովա պողոտայի վրա, մոտ կանգառ՝ «Օպերա»։  
+        Մուտքը հարմար է մեքենաների համար, ինչպես նաև կարող եք օգտվել տաքսի ծառայություններից։
+        <br>
+        <a href="https://goo.gl/maps/3jQ9H5y6n8N2" target="_blank">Դիտել քարտեզում</a>
+      </div>
+    </section>
+    <section id="timeline">
+      <div class="img-gallery">
+        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Flowers">
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80" alt="Bouquet">
+      </div>
+      <h3>Մեր օրվա ժամանակացույցը</h3>
+      <ul class="timeline">
+        <li><strong>14:30 — Հավաքում եկեղեցու բակում</strong></li>
+        <li><strong>15:00 — Հարսանեկան արարողություն՝ Սուրբ Գրիգոր Լուսավորիչ եկեղեցում</strong></li>
+        <li><strong>16:15 — Ֆոտոշարք և փոքրիկ հյուրասիրություն եկեղեցու մոտ</strong></li>
+        <li><strong>17:00 — Տոնական ընթրիք «Արև» ռեստորանում</strong></li>
+        <li><strong>18:30 — Պարեր, խաղեր, անակնկալներ</strong></li>
+        <li><strong>22:30 — Երեկոյի ավարտ</strong></li>
+      </ul>
+    </section>
+    <section id="warmwords">
+      <div class="warm-words">
+        Սիրելի՛ հյուր,  
+        <br>
+        Մեր կյանքը նոր էջ է բացում, և այդ էջի գեղեցկությունն ու ջերմությունը դու կարող ես լրացնել քո ներկայությամբ։  
+        <br><br>
+        Եկեք միասին տոնենք մեր սերը, մեր ընտանիքի հիմնադրումը,  
+        ու հիշենք այս օրը միշտ՝ որպես հիասքանչ հիշողություն։
+        <br><br>
+        Սրտանց սպասում ենք քեզ ու քո ընտանիքին մեր սիրո օրվա տոնին։
+      </div>
+      <div class="img-gallery">
+        <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=400&q=80" alt="Church Inside">
+        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Flowers">
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80" alt="Bouquet">
+      </div>
+    </section>
+    <section id="rsvp">
+      <div class="rsvp-section">
+        <h3>Խնդրում ենք հաստատել Ձեր մասնակցությունը այստեղ՝</h3>
+        <!-- Փոխարինեք YOUR_GOOGLE_FORM_LINK Ձեր Google Form-ի embed հղումով -->
+        <iframe src="YOUR_GOOGLE_FORM_LINK" loading="lazy"></iframe>
+      </div>
+    </section>
+  </div>
+  <script>
+    // Countdown
+    const weddingDate = new Date("2025-06-20T15:00:00+04:00").getTime();
+    function updateCountdown() {
+      const now = new Date().getTime();
+      let distance = weddingDate - now;
+      if (distance < 0) distance = 0;
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      document.getElementById("countdown").textContent = `Հարսանիքին մնացել է՝ ${days} օր, ${hours} ժամ, ${minutes} րոպե, ${seconds} վայրկյան`;
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Navigation
+    function showPage(page) {
+      document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.querySelector(`nav button[onclick="showPage('${page}')"]`).classList.add('active');
+      document.getElementById(page).classList.add('active');
+    }
+  </script>
+</body>
+</html>
